@@ -116,6 +116,7 @@ going -> ingoing -> ongoing
 able -> enabled -> unable -> disabled
 follow -> unfollow
 coming -> incoming
+liked -> disliked
 with -> without
 sync -> async
 allowed -> unallowed
