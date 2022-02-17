@@ -11,7 +11,9 @@ JavaScript 作为前端以及Node.js开发人员的必备知识点，其涉及�
   - <a href="#数字命名">数字命名</a>
     - <a href="#规则1-分页选择最佳组合命名">规则1: 分页选择最佳组合命名</a>
     - <a href="#规则2-使用表数量的前后缀数量来命名数量">规则2: 使用表数量的前后缀数量来命名数量</a>
-
+  - <a href="#数组命名">数组命名</a>
+    - <a href="#规则1-使用的复数形式来命名">规则1: 使用的复数形式来命名</a>
+    - <a href="#规则2-使用具有列表意思的词汇作为后缀">规则2: 使用具有列表意思的词汇作为后缀</a>
 
 ## 通用规则
 
@@ -97,7 +99,7 @@ const xx = (disabled = false) => {...}
 
 推荐命名模板为：`前缀 + 名词/动词/形容词`，推荐前缀词汇为：`is`, `has`, `show`, `can/allow`, `check`, `enable/disable`。
 
-- `is` 前缀搭配表示动作的动词过去式表**状态已完成**，如：`isOpened`, `isClosed`, `isCanceled`, `isFailed`, `isFinished`, `isUpdated`, `isSelected`, `isChecked`, `isIdled`, `isDone`, `isCleared` 等；搭配名词表示**分类**，如：`isReserved`, `isValid`, `isInvalid`, `isList`, `isPlural`, `isArray`, `isUUID`, `isParent`, `isChild`, `isLeaf`；搭配动词现在进行时表示**进行中、持续中**，如：`isLoading`, `isRunning`, `isPending`, `isMounting` 等。
+- `is` 前缀搭配表示动作的动词过去式表**状态已完成**，如：`isOpened`, `isClosed`, `isCanceled`, `isFailed`, `isFinished`, `isUpdated`, `isSelected`, `isChecked`, `isIdled`, `isDone`, `isCleared`, `isCaptured` 等；搭配名词表示**分类**，如：`isReserved`, `isValid`, `isInvalid`, `isList`, `isPlural`, `isArray`, `isUUID`, `isParent`, `isChild`, `isLeaf`；搭配动词现在进行时表示**进行中、持续中**，如：`isLoading`, `isRunning`, `isPending`, `isMounting` 等。
 - `has` 前缀搭配名词表示**是否存在**，如：`hasParent`, `hasChild`, `hasMany`, `hasEven`, `hasOdd`, `hasClass`, `hasCss`, `hasSession`。
 - `can/allow` 前缀搭配动词表示**操作是否允许**，如：`canLogin`, `canSelectItem`, `canDisplay`, `canUse`, `allowUpdate`, `allowDeletion` 等
 - `show` 前缀通常用于配置组件界面功能**是否显示**，如：`showTips`, `showSearchBtn`, `showNotice`, `showTotal`, `showSizeChanger` 等。
@@ -144,3 +146,40 @@ const minUsers = 1;
 const maxUsers = 50;
 const totalUsers = 10;
 ```
+
+## 数组命名
+
+数组是可迭代的项列表，通常为相同类型。由于它们将包含多个值，因此将变量名称复数化是有意义的。
+
+#### 规则1: 使用的复数形式来命名
+
+我们不仅使用复数形式来命名，进一步还需要考虑如何更详细的描述数组项。例如这里的 `fruits` 其值为水果的英文名称，那么使用 `fruitNames` 更加贴切，进一步分为中英文名，那我们可以选择 `fruitEnNames` 和 `fruitZhNames`。
+
+```javascript
+// Bad
+const fruit = ['apple', 'banana', 'cucumber'];
+
+// Ok
+const fruitArr = ['apple', 'banana', 'cucumber'];
+
+// Good
+const fruits = ['apple', 'banana', 'cucumber'];
+
+// Great
+const fruitNames = ['apple', 'banana', 'cucumber'];
+```
+
+项目中常见词汇有：`users`, `orders`, `messages`, `followers`, `comments`, `articles`, `posts`, `coupons`, `props`, `attributes`, `videos`, `images`, `texts`, `teams`, `families`, `classes`, `peoples`, `products`, `species`, `children` 等。
+
+#### 规则2: 使用具有列表意思的词汇作为后缀
+
+规则1并不适用于所有的场景，列如：`goods(商品)` 和 `clothes(衣服)` 形式为复数，意义也为复数的集合名字；`clothing(衣服)`, `furniture(家具)`, `machinery(机器)`, `poetry(诗)`, `jewelry(珠宝)`, `equipment(设备)` 等形式为单数，意义也为单数的集合名词；单复数不是简单添加`s`的名词，如 `child` 复数为 `children`。这个时候建议使用 `list`作为后缀：
+
+```javascript
+// Bad
+const goods = ['mobile', 'desktop', 'cup'];
+
+// Good
+const goodsList = ['mobile', 'desktop', 'cup'];
+```
+

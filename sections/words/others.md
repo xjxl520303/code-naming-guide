@@ -132,4 +132,5 @@ regular -> irregular
 implicit -> explicit
 import -> export
 micro -> macro
+queue -> enqueue -> dequeue
 ```
